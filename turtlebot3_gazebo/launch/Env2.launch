@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launch>
+	  <arg name="model" default="$(env TURTLEBOT3_MODEL)" doc="model type [burger, waffle, waffle_pi]"/>
+
+	<include file="$(find gazebo_ros)/launch/empty_world.launch">
+		<arg name="world_name" value="$(find turtlebot3_gazebo)/worlds/Env2.world"/>
+		<arg name="paused" value="false"/>
+		<arg name="use_sim_time" value="true"/>
+		<arg name="gui" value="true"/>
+		<arg name="headless" value="false"/>
+		<arg name="debug" value="false"/>
+		<arg name="verbose" value="false"/>
+	</include>
+	
+	<group ns="leader_1">
+		<include file="$(find husky_gazebo)/launch/spawn_husky.launch">
+	    	<arg name="laser_enabled" value="true"/>
+	    	<arg name="realsense_enabled" value="false"/>
+	    	<arg name="y" value="1"/>
+			<arg name="x" value="1"/>
+			<arg name="z" value="0.5"/>
+			<arg name="robot_namespace" value="leader_1"/>
+	  	</include>
+	</group>
+
+	<group ns="burger_1">
+		<include file="$(find turtlebot3_gazebo)/launch/spawn_turtle3.launch">
+			<arg name="robot_num" value="1"/>
+			<arg name="y_pos" value="1.9014476240300544"/>
+			<arg name="x_pos" value="1.7311469360199059"/>
+			<arg name="z_pos" value="0.1"/>
+		</include>
+	</group>
+
+	<group ns="burger_2">
+		<include file="$(find turtlebot3_gazebo)/launch/spawn_turtle3.launch">
+			<arg name="robot_num" value="2"/>
+			<arg name="y_pos" value="2.234458251593744"/>
+			<arg name="x_pos" value="1.9661050337783683"/>
+			<arg name="z_pos" value="0.1"/>
+		</include>
+	</group>
+<!--	
+	<include file="$(find swarm_pi)launch/Pi_Local.launch">
+		<arg name="ID" value="2"/>
+		<arg name="agents" value="10"/>
+	</include>
+	<group ns="Turtle_3">
+		<include file="$(find turtlebot3_gazebo)/launch/spawn_turtle3.launch">
+			<arg name="robot_num" value="3"/>
+			<arg name="y_pos" value="1.0624218568616726"/>
+			<arg name="x_pos" value="1.936859983433352"/>
+			<arg name="z_pos" value="0.1"/>
+		</include>
+	</group>
+	<include file="$(find swarm_pi)launch/Pi_Local.launch">
+		<arg name="ID" value="3"/>
+		<arg name="agents" value="10"/>
+	</include>
+	<group ns="Turtle_4">
+		<include file="$(find turtlebot3_gazebo)/launch/spawn_turtle3.launch">
+			<arg name="robot_num" value="4"/>
+			<arg name="y_pos" value="1.6181398729652385"/>
+			<arg name="x_pos" value="2.0930553055026824"/>
+			<arg name="z_pos" value="0.1"/>
+		</include>
+	</group>
+	<include file="$(find swarm_pi)launch/Pi_Local.launch">
+		<arg name="ID" value="4"/>
+		<arg name="agents" value="10"/>
+	</include>
+	<group ns="Turtle_5">
+		<include file="$(find turtlebot3_gazebo)/launch/spawn_turtle3.launch">
+			<arg name="robot_num" value="5"/>
+			<arg name="y_pos" value="2.259040132384691"/>
+			<arg name="x_pos" value="1.3714284985181857"/>
+			<arg name="z_pos" value="0.1"/>
+		</include>
+	</group>
+	<include file="$(find swarm_pi)launch/Pi_Local.launch">
+		<arg name="ID" value="5"/>
+		<arg name="agents" value="10"/>
+	</include>
+	<group ns="Turtle_6">
+		<include file="$(find turtlebot3_gazebo)/launch/spawn_turtle3.launch">
+			<arg name="robot_num" value="6"/>
+			<arg name="y_pos" value="1.7207297987615946"/>
+			<arg name="x_pos" value="1.3468750022429667"/>
+			<arg name="z_pos" value="0.1"/>
+		</include>
+	</group>
+	<include file="$(find swarm_pi)launch/Pi_Local.launch">
+		<arg name="ID" value="6"/>
+		<arg name="agents" value="10"/>
+	</include>
+	<group ns="Turtle_7">
+		<include file="$(find turtlebot3_gazebo)/launch/spawn_turtle3.launch">
+			<arg name="robot_num" value="7"/>
+			<arg name="y_pos" value="1.0942226253142786"/>
+			<arg name="x_pos" value="3.082178164430568"/>
+			<arg name="z_pos" value="0.1"/>
+		</include>
+	</group>
+	<include file="$(find swarm_pi)launch/Pi_Local.launch">
+		<arg name="ID" value="7"/>
+		<arg name="agents" value="10"/>
+	</include>
+	<group ns="Turtle_8">
+		<include file="$(find turtlebot3_gazebo)/launch/spawn_turtle3.launch">
+			<arg name="robot_num" value="8"/>
+			<arg name="y_pos" value="1.4801849564617362"/>
+			<arg name="x_pos" value="2.546921361414044"/>
+			<arg name="z_pos" value="0.1"/>
+		</include>
+	</group>
+	<include file="$(find swarm_pi)launch/Pi_Local.launch">
+		<arg name="ID" value="8"/>
+		<arg name="agents" value="10"/>
+	</include>
+	<group ns="Turtle_9">
+		<include file="$(find turtlebot3_gazebo)/launch/spawn_turtle3.launch">
+			<arg name="robot_num" value="9"/>
+			<arg name="y_pos" value="2.658524313664734"/>
+			<arg name="x_pos" value="2.404501675316089"/>
+			<arg name="z_pos" value="0.1"/>
+		</include>
+	</group>
+	<include file="$(find swarm_pi)launch/Pi_Local.launch">
+		<arg name="ID" value="9"/>
+		<arg name="agents" value="10"/>
+	</include>
+	<group ns="Turtle_10">
+		<include file="$(find turtlebot3_gazebo)/launch/spawn_turtle3.launch">
+			<arg name="robot_num" value="10"/>
+			<arg name="y_pos" value="1.9379737528071277"/>
+			<arg name="x_pos" value="2.7734767982287685"/>
+			<arg name="z_pos" value="0.1"/>
+		</include>
+	</group>
+-->
+	
+	
+</launch>

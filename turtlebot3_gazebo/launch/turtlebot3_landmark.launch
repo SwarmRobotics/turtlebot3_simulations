@@ -1,0 +1,104 @@
+<launch>
+  <arg name="model" default="$(env TURTLEBOT3_MODEL)" doc="model type [burger, waffle, waffle_pi]"/>
+
+
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find turtlebot3_gazebo)/worlds/landmark_test.world"/>
+    <arg name="paused" value="false"/>
+    <arg name="use_sim_time" value="true"/>
+    <arg name="gui" value="false"/>
+    <arg name="headless" value="false"/>
+    <arg name="debug" value="false"/>
+  </include>
+
+<group ns="burger_1">
+      <include file="$(find turtlebot3_gazebo)/launch/spawn_turtle3.launch">
+          <arg name="robot_num" value="1"/>
+          <arg name="y_pos" value="0"/>
+         <arg name="x_pos" value="0"/> 
+         <arg name="z_pos" value="0.1"/>
+      </include>
+</group>
+
+<group ns="burger_2">
+      <include file="$(find turtlebot3_gazebo)/launch/spawn_turtle3.launch">
+          <arg name="robot_num" value="2"/>
+          <arg name="y_pos" value="-0.5"/>
+         <arg name="x_pos" value="0.5"/> 
+         <arg name="z_pos" value="0.1"/>
+      </include>
+</group>
+
+<!-- <group ns="burger_3">
+      <include file="$(find turtlebot3_gazebo)/launch/spawn_turtle3.launch">
+          <arg name="robot_num" value="3"/>
+          <arg name="y_pos" value="0.5"/>
+         <arg name="x_pos" value="0.5"/> 
+         <arg name="z_pos" value="0.1"/>
+      </include>
+</group>
+
+<group ns="burger_4">
+      <include file="$(find turtlebot3_gazebo)/launch/spawn_turtle3.launch">
+          <arg name="robot_num" value="4"/>
+          <arg name="y_pos" value="0.5"/>
+         <arg name="x_pos" value="-0.5"/> 
+         <arg name="z_pos" value="0.1"/>
+      </include>
+</group>
+
+
+<group ns="burger_5">
+      <include file="$(find turtlebot3_gazebo)/launch/spawn_turtle3.launch">
+          <arg name="robot_num" value="5"/>
+          <arg name="y_pos" value="0.75"/>
+         <arg name="x_pos" value="0.75"/> 
+         <arg name="z_pos" value="0.1"/>
+      </include>
+</group>
+
+<group ns="burger_6">
+      <include file="$(find turtlebot3_gazebo)/launch/spawn_turtle3.launch">
+          <arg name="robot_num" value="6"/>
+         <arg name="y_pos" value="-0.75"/>
+         <arg name="x_pos" value="0.75"/> 
+         <arg name="z_pos" value="0.1"/>
+      </include>
+</group>
+
+<group ns="burger_7">
+      <include file="$(find turtlebot3_gazebo)/launch/spawn_turtle3.launch">
+          <arg name="robot_num" value="7"/>
+          <arg name="y_pos" value="0.75"/>
+         <arg name="x_pos" value="-0.75"/> 
+         <arg name="z_pos" value="0.1"/>
+      </include>
+</group>
+
+<group ns="burger_8">
+      <include file="$(find turtlebot3_gazebo)/launch/spawn_turtle3.launch">
+          <arg name="robot_num" value="8"/>
+            <arg name="y_pos" value="-0.75"/>
+         <arg name="x_pos" value="-0.75"/> 
+         <arg name="z_pos" value="0.1"/>
+      </include>
+</group>
+
+<group ns="burger_9">
+      <include file="$(find turtlebot3_gazebo)/launch/spawn_turtle3.launch">
+          <arg name="robot_num" value="9"/>
+            <arg name="y_pos" value="0.25"/>
+         <arg name="x_pos" value="0.75"/> 
+         <arg name="z_pos" value="0.1"/>
+      </include>
+</group>
+
+<group ns="burger_10">
+      <include file="$(find turtlebot3_gazebo)/launch/spawn_turtle3.launch">
+          <arg name="robot_num" value="10"/>
+            <arg name="y_pos" value="0.75"/>
+         <arg name="x_pos" value="0.25"/> 
+         <arg name="z_pos" value="0.1"/>
+      </include>
+</group> -->
+</launch>

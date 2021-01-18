@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<launch>
+
+  <arg name="robot_num" default="0"/>
+  <arg name="x_pos" default="0.0"/>
+  <arg name="y_pos" default="0.0"/>
+  <arg name="z_pos" default="0.0"/>
+
+  <param name="robot_description" command="$(find xacro)/xacro --inorder --check-order $(find turtlebot3_description)/urdf/turtlebot3_burger.urdf.xacro number:=$(arg robot_num)" />
+ 
+  <node name="spawn_urdf_$(arg robot_num)" pkg="gazebo_ros" type="spawn_model" args="-urdf -model turtlebot3_burger_$(arg robot_num) -x $(arg x_pos) -y $(arg y_pos) -z $(arg z_pos) -param robot_description"/>
+
+
+
+</launch>
+
+
